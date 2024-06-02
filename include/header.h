@@ -32,10 +32,11 @@
 #include "macro.h"
 #include "struct.h"
 
-#define ATTACK_SPEED_ENY 1.5
-#define INV_SIZE 32
+#define GROUND_Y 700
 #define FRAMERATE 160
-#define SPEED 7500 * 1.75
+#define GRAVITY 2
+#define JUMP_HEIGHT 30
+#define MAX_JUMP_SPEED 10
 
 typedef void (*scene_loop_t)(gamedata_t *gamedata, sfEvent *event);
 
@@ -75,8 +76,10 @@ bool is_on_sprite(sprite_t *sprite, sfVector2f pix);
 char *my_itoa(int nbr);
 int my_nbrlen(int nbr);
 int my_random(int min, int max);
-text_t *create_text(char *path);
 char **str_to_array(char *line, char *ban);
+text_t *create_text(char *path);
+movement_t *create_movement(void);
+animation_t *create_animation(void);
 
 //save
 void save(gamedata_t *game);

@@ -30,8 +30,9 @@ typedef struct text_s {
 } text_t;
 
 typedef struct movement_s {
-    sfVector2f direction;
+    sfVector2f velocity;
     sfClock *clock;
+    float deltaTime;
 } movement_t;
 
 typedef struct animation_s {
@@ -54,10 +55,27 @@ typedef struct sfx_s {
     sfMusic *sounds[NB_SFX];
 } sfx_t;
 
+typedef struct player_s {
+    sprite_t *sprite;
+    movement_t *movement;
+    animation_t *animation;
+    sfVector2f pos;
+    bool jumping;
+} player_t;
+
+typedef struct background_s {
+    sprite_t *backOne;
+    sprite_t *backTwo;
+    sprite_t *frontOne;
+    sprite_t *frontTwo;
+} background_t;
+
 typedef struct gamedata_s {
     struct window_s *window;
     struct sfx_s *sfx;
     enum scene_e scene;
+    struct player_s *player;
+    struct background_s *background;
     int max_score;
     int score;
 } gamedata_t;

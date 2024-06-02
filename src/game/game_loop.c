@@ -9,6 +9,7 @@
 
 void game_loop(gamedata_t *gamedata, sfEvent *event)
 {
-    (void)gamedata;
-    (void)event;
+    game_event(gamedata, event);
+    game_process(gamedata);
+    game_display(gamedata);
 }

@@ -11,9 +11,15 @@ SRC =	src/dinoGame.c										\
 		src/functions/debug_functions.c						\
 		src/functions/str_to_array.c						\
 		src/functions/create_text.c							\
+		src/functions/create_sprite.c						\
+		src/functions/create_movement.c						\
+		src/functions/create_animation.c					\
 		src/fill/fill_gamedata.c							\
 		src/start/start_loop.c								\
 		src/game/game_loop.c								\
+		src/game/game_event.c								\
+		src/game/game_display.c								\
+		src/game/game_process.c								\
 		src/over/over_loop.c								\
 
 MAIN =	main.c
