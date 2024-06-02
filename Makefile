@@ -14,6 +14,8 @@ SRC =	src/dinoGame.c										\
 		src/functions/create_sprite.c						\
 		src/functions/create_movement.c						\
 		src/functions/create_animation.c					\
+		src/functions/add_score_cactus.c					\
+		src/functions/add_cactus.c							\
 		src/fill/fill_gamedata.c							\
 		src/start/start_loop.c								\
 		src/game/game_loop.c								\
@@ -35,7 +37,7 @@ INCLUDES =	-I./include -I./include/entity -I./include/menu -I./include/map \
 
 LIBS =	-l csfml-graphics -l csfml-window -l csfml-system -l csfml-audio -lm
 
-CFLAGS =	-Wextra -Wall -Wshadow -Werror
+CFLAGS =	-Wextra -Wall -Wshadow -Werror -g
 
 CC := gcc -o $(NAME) $(INCLUDES)
 

@@ -70,11 +70,20 @@ typedef struct background_s {
     sprite_t *frontTwo;
 } background_t;
 
+typedef struct cactus_s {
+    sprite_t *sprite;
+    movement_t *movement;
+    sfVector2f pos;
+    bool givenPoint;
+    struct cactus_s *next;
+} cactus_t;
+
 typedef struct gamedata_s {
     struct window_s *window;
     struct sfx_s *sfx;
     enum scene_e scene;
     struct player_s *player;
+    struct cactus_s *cactus;
     struct background_s *background;
     int max_score;
     int score;

@@ -26,16 +26,31 @@ void fill_player(gamedata_t *game)
         (sfIntRect){0, 0, 512, 512});
     game->player->movement = create_movement();
     game->player->animation = create_animation();
-    game->player->pos = (sfVector2f){500, 0};
+    game->player->pos = (sfVector2f){400, GROUND_Y};
     sfSprite_setPosition(game->player->sprite->sprite, game->player->pos);
     sfSprite_setScale(game->player->sprite->sprite, (sfVector2f){0.5, 0.5});
     game->player->jumping = false;
+}
+
+void fill_cactus(gamedata_t *game)
+{
+    game->cactus = malloc(sizeof(cactus_t) * 1);
+    game->cactus->givenPoint = false;
+    game->cactus->movement = create_movement();
+    game->cactus->movement->velocity.x = -CACTUS_SPEED;
+    game->cactus->pos = (sfVector2f){1920 - 289, GROUND_Y};
+    game->cactus->sprite = create_sprite("assets/SoloCactus.png",
+        (sfIntRect){0, 0, 289, 500});
+    sfSprite_setScale(game->cactus->sprite->sprite, (sfVector2f){0.5, 0.5});
+    sfSprite_setPosition(game->cactus->sprite->sprite, game->cactus->pos);
+    game->cactus->next = NULL;
 }
 
 void fill_gamedata(gamedata_t *game)
 {
     fill_window(game);
     fill_player(game);
+    fill_cactus(game);
     // fill_background(game);
     game->scene = S_GAME;
     game->score = 0;

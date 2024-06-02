@@ -32,11 +32,12 @@
 #include "macro.h"
 #include "struct.h"
 
-#define GROUND_Y 700
 #define FRAMERATE 160
+#define GROUND_Y 700
 #define GRAVITY 2
-#define JUMP_HEIGHT 30
-#define MAX_JUMP_SPEED 10
+#define JUMP_HEIGHT 12
+#define MAX_JUMP_SPEED 12
+#define CACTUS_SPEED 10
 
 typedef void (*scene_loop_t)(gamedata_t *gamedata, sfEvent *event);
 
@@ -80,6 +81,9 @@ char **str_to_array(char *line, char *ban);
 text_t *create_text(char *path);
 movement_t *create_movement(void);
 animation_t *create_animation(void);
+void add_score_cactus(gamedata_t *gamedata, cactus_t *cactus);
+void add_cactus(gamedata_t *game);
+void del_cactus(gamedata_t *game, cactus_t *cactus);
 
 //save
 void save(gamedata_t *game);
