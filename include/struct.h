@@ -87,4 +87,5 @@ typedef struct gamedata_s {
     struct background_s *background;
     int max_score;
     int score;
+    sfClock *spawnCactus;
 } gamedata_t;

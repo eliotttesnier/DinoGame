@@ -27,9 +27,10 @@ void add_cactus(gamedata_t *gamedata)
 {
     cactus_t *new = malloc(sizeof(cactus_t));
 
-    new->sprite = create_sprite("assets/SoloCactus.png", (sfIntRect){0, 0, 298, 500});
+    new->sprite = create_sprite("assets/SoloCactus.png", (sfIntRect){0, 0, 289, 500});
     new->givenPoint = false;
-    new->pos = (sfVector2f){1920 - new->sprite->rect.width, GROUND_Y};
+    new->pos = (sfVector2f){1920, GROUND_Y};
+    sfSprite_setScale(new->sprite->sprite, (sfVector2f){0.5, 0.5});
     sfSprite_setPosition(new->sprite->sprite, new->pos);
     new->movement = create_movement();
     new->movement->velocity.x = -CACTUS_SPEED;

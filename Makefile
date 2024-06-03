@@ -17,6 +17,7 @@ SRC =	src/dinoGame.c										\
 		src/functions/add_score_cactus.c					\
 		src/functions/add_cactus.c							\
 		src/functions/is_on_cactus.c						\
+		src/functions/my_random.c							\
 		src/fill/fill_gamedata.c							\
 		src/start/start_loop.c								\
 		src/game/game_loop.c								\

@@ -55,4 +55,5 @@ void fill_gamedata(gamedata_t *game)
     game->scene = S_GAME;
     game->score = 0;
     game->sfx = NULL;
+    game->spawnCactus = sfClock_create();
 }

@@ -54,9 +54,21 @@ void cactus_update(gamedata_t *game)
     }
 }
 
+void generate_new_cactuses(gamedata_t *game)
+{
+    sfTime time = sfClock_getElapsedTime(game->spawnCactus);
+    float seconds = sfTime_asSeconds(time);
+
+    if (seconds > my_random(2, 5)) {
+        add_cactus(game);
+        sfClock_restart(game->spawnCactus);
+    }
+}
+
 void game_process(gamedata_t *game)
 {
     player_update(game);
     cactus_update(game);
+    generate_new_cactuses(game);
     printf("Score: %d\n", game->score);
 }
