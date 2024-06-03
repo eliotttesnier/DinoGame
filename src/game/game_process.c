@@ -41,11 +41,12 @@ void cactus_update(gamedata_t *game)
 {
     cactus_t *tmp = game->cactus;
 
-    player_update(game);
     while (tmp != NULL) {
         move_cactus(tmp);
         add_score_cactus(game, tmp);
-        if (tmp->pos.x < 0) {
+        if (is_on_cactus(game, tmp))
+            game->scene = S_OVER;
+        if (tmp->pos.x < 0 - tmp->sprite->rect.width) {
             del_cactus(game, tmp);
             break;
         }
@@ -55,5 +56,7 @@ void cactus_update(gamedata_t *game)
 
 void game_process(gamedata_t *game)
 {
+    player_update(game);
+    cactus_update(game);
     printf("Score: %d\n", game->score);
 }

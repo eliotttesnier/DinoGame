@@ -84,6 +84,7 @@ animation_t *create_animation(void);
 void add_score_cactus(gamedata_t *gamedata, cactus_t *cactus);
 void add_cactus(gamedata_t *game);
 void del_cactus(gamedata_t *game, cactus_t *cactus);
+bool is_on_cactus(gamedata_t *game, cactus_t *cactus);
 
 //save
 void save(gamedata_t *game);
